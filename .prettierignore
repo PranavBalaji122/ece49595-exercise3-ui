@@ -1,0 +1,8 @@
+.next
+node_modules
+playwright-report
+test-results
+package-lock.json
+AGENTS.md
+CLAUDE.md
+next-env.d.ts

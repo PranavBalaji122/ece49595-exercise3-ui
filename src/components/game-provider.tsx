@@ -3,8 +3,18 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
 import { games, type Game, type SportFilter } from "@/lib/games";
 
-export interface Filters { sport: SportFilter; distance: number; openOnly: boolean; sort: "distance" | "date" }
-export const defaultFilters: Filters = { sport: "All sports", distance: 10, openOnly: false, sort: "distance" };
+export interface Filters {
+  sport: SportFilter;
+  distance: number;
+  openOnly: boolean;
+  sort: "distance" | "date";
+}
+export const defaultFilters: Filters = {
+  sport: "All sports",
+  distance: 10,
+  openOnly: false,
+  sort: "distance",
+};
 
 interface GameContextValue {
   filters: Filters;
@@ -30,7 +40,16 @@ export function GameProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <GameContext.Provider value={{ filters, setFilters, joinedIds, toggleJoin, playerCount: (game) => game.players + Number(joinedIds.includes(game.id)) }}>
+    <GameContext.Provider
+      value={{
+        filters,
+        setFilters,
+        joinedIds,
+        toggleJoin,
+        playerCount: (game) =>
+          game.players + Number(joinedIds.includes(game.id)),
+      }}
+    >
       {children}
     </GameContext.Provider>
   );

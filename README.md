@@ -2,6 +2,12 @@
 
 **OpenCourt** is a responsive pickup sports discovery prototype for the Purdue / West Lafayette community. Find a game, explore its details, and try joining an open spot.
 
+## Demo Video
+
+[View the Exercise 3 OpenCourt Demo](https://github.com/PranavBalaji122/ece49595-exercise3-ui/blob/main/docs/video/ECE49595_Exercise3_OpenCourt_Final.mp4)
+
+The 39-second recording shows the editor, development-server launch, Discover filters, and Game Details. Build verification and mobile screenshots are available in the documentation below.
+
 ## Technical Skill
 
 Responsive, component-based React UI development using Next.js and Tailwind CSS.

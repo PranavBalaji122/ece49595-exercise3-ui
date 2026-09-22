@@ -1,26 +1,32 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import "@fontsource-variable/dm-sans";
+@import "@fontsource-variable/manrope";
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: #f8f9f5;
+  --color-ink: #253b32;
+  --color-forest: #245c43;
+  --color-muted: #66736a;
+  --color-sage: #e9eee2;
+  --color-line: #e0e5dc;
+  --color-clay: #bc6544;
+  --font-sans: "DM Sans Variable", Arial, sans-serif;
+  --font-heading: "Manrope Variable", Arial, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+body { background: var(--color-background); color: var(--color-ink); font-family: var(--font-sans); }
+button, select, a, input { -webkit-tap-highlight-color: transparent; }
+button, select { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+:focus-visible { outline: 3px solid #b96d36; outline-offset: 4px; }
+::selection { background: #d9e7c5; color: #173c2a; }
+.page-shell { width: min(1280px, calc(100% - 64px)); margin-inline: auto; }
+.nav-link { display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; font-weight: 600; color: var(--color-muted); border-bottom: 2px solid transparent; padding-top: 2px; }
+.nav-active { color: var(--color-forest); border-color: var(--color-forest); }
+.primary-button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border-radius: 12px; min-height: 48px; padding: 12px 20px; font-weight: 600; background: var(--color-forest); color: white; transition: background .2s; }
+.primary-button:hover { background: #194a34; }
+.primary-button:disabled { background: #e0e5dc; color: #5f6b61; }
+.map-pin { filter: drop-shadow(0 3px 5px #253b3220); }
+.game-scroll { scrollbar-width: thin; scrollbar-color: #cdd7c8 transparent; }
+@media (max-width: 639px) { .page-shell { width: calc(100% - 32px); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }

@@ -49,3 +49,13 @@ npm run test:e2e
 ```
 
 Google Chrome must be installed for the configured browser channel. See the README for using bundled Chromium instead. No application credentials or environment variables are needed.
+
+## PickupSports rebrand verification — September 22, 2026
+
+- `npm run build`: passed; all 13 static pages generated.
+- `npm run lint`: passed.
+- `npm run typecheck`: passed.
+- `npm run test:e2e`: all 20 tests passed across desktop and mobile (14.8 seconds).
+- Tests verified sport/distance filtering, Game Details/back navigation, joining, map controls, keyboard access, WCAG A/AA checks, and responsive layouts including 320px overflow checks.
+- All five evidence screenshots were regenerated: source structure in VS Code, desktop Discover, Basketball within 2 miles (one result), After-class hoops details, and the 390px mobile layout.
+- The previous video is withdrawn from the current submission because its visible branding is outdated. A fresh recording is required; see `docs/video/README.md`.

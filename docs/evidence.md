@@ -1,8 +1,10 @@
 # Assignment screenshot evidence
 
-Use the captions below directly in the assignment document. Keep the public repository URL next to the screenshots. The four UI screenshots are already captured in `docs/screenshots/`; screenshot 1 is best taken in your code editor so the actual component structure is visible.
+Use the captions below directly in the assignment document. Keep the public repository URL next to the screenshots. All five PickupSports screenshots are captured in `docs/screenshots/`, including the actual project structure in the code editor.
 
 ## Screenshot 1 — Project/component file structure
+
+**Ready-made image:** [01-component-structure.png](screenshots/01-component-structure.png)
 
 **Take:** Open the project folder in VS Code or another editor. Expand `src/app`, `src/app/games/[id]`, `src/components`, and `src/lib` in the Explorer. Show `Navbar`, `GameCard`, `FilterBar`, and `MapPanel` filenames; collapse `node_modules` and `.next`. Optionally open `discover-explorer.tsx` alongside the tree to show component composition.
 
@@ -43,6 +45,6 @@ Use the captions below directly in the assignment document. Keep the public repo
 ## Final submission reminders
 
 - Include the public GitHub repository URL.
-- Add screenshot 1 from your editor and use the four supplied UI captures, or retake all five yourself.
+- Use the five regenerated PickupSports screenshots.
 - Complete any required non-coding reflection in your own words, describing what you understand and learned; this repository supplies the coding prototype and technical evidence.
 - These are demo games and an illustrative map, not live pickup events.

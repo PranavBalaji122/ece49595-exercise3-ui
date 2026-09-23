@@ -148,7 +148,7 @@ export function DiscoverExplorer() {
         </section>
       </div>
       <section
-        aria-label="How OpenCourt works"
+        aria-label="How PickupSports works"
         className="mt-7 flex flex-col justify-between gap-4 rounded-2xl bg-[#edf0e6] px-5 py-5 sm:flex-row sm:items-center sm:px-6"
       >
         <div className="flex items-center gap-3">

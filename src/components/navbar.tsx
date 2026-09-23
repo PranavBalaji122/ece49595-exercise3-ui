@@ -29,7 +29,7 @@ export function Brand({ light = false }: { light?: boolean }) {
         <path d="M2 16h28M16 2v28" stroke="currentColor" strokeWidth="1.4" />
         <circle cx="16" cy="16" r="7" stroke="currentColor" strokeWidth="1.4" />
       </svg>
-      opencourt<span className="-ml-2 text-clay">.</span>
+      PickupSports<span className="-ml-2 text-clay">.</span>
     </span>
   );
 }
@@ -40,7 +40,7 @@ export function Navbar() {
   return (
     <header className="border-b border-line bg-white">
       <div className="page-shell flex min-h-20 flex-wrap items-center justify-between gap-x-6 gap-y-2 py-4 sm:py-0">
-        <Link href="/" aria-label="OpenCourt home">
+        <Link href="/" aria-label="PickupSports home">
           <Brand />
         </Link>
         <nav
@@ -82,7 +82,8 @@ export function Footer() {
     <footer className="page-shell mt-12 flex flex-col justify-between gap-3 border-t border-line py-6 text-xs text-muted sm:flex-row">
       <p>Made for a little less scrolling, a little more playing.</p>
       <p className="flex items-center gap-1.5">
-        OpenCourt · ECE 49595 UI prototype <ArrowUpRight className="size-3" />
+        PickupSports · ECE 49595 UI prototype{" "}
+        <ArrowUpRight className="size-3" />
       </p>
     </footer>
   );

@@ -5,8 +5,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "OpenCourt — Find your next game",
-    template: "%s | OpenCourt",
+    default: "PickupSports — Find your next game",
+    template: "%s | PickupSports",
   },
   description:
     "Find your people. Find your game. A pickup sports discovery prototype around Purdue and West Lafayette.",

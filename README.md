@@ -1,12 +1,10 @@
 # ECE 49595 Exercise 3 – UI Skill
 
-**OpenCourt** is a responsive pickup sports discovery prototype for the Purdue / West Lafayette community. Find a game, explore its details, and try joining an open spot.
+**PickupSports** is a responsive pickup sports discovery prototype for the Purdue / West Lafayette community. Find a game, explore its details, and try joining an open spot.
 
 ## Demo Video
 
-[View the Exercise 3 OpenCourt Demo](https://github.com/PranavBalaji122/ece49595-exercise3-ui/blob/main/docs/video/ECE49595_Exercise3_OpenCourt_Final.mp4)
-
-The 39-second recording shows the editor, development-server launch, Discover filters, and Game Details. Build verification and mobile screenshots are available in the documentation below.
+A new PickupSports recording is required before video submission. Follow the [recording sequence](docs/video/README.md). The previous recording has been withdrawn because its UI branding is outdated.
 
 ## Technical Skill
 
@@ -29,7 +27,7 @@ Our semester project is a geolocation-based application for discovering nearby p
 - Open-spots filtering, distance/date sorting, empty states, a custom 404, keyboard focus styles, and a skip link.
 - Capacity-aware demo join/leave actions and a **My games** view. Player totals update across views.
 
-![OpenCourt Discover page](docs/screenshots/02-discover-desktop.png)
+![PickupSports Discover page](docs/screenshots/02-discover-desktop.png)
 
 ## Learning Objectives
 
@@ -83,7 +81,7 @@ src/
 │   ├── page.tsx                 # Discover route
 │   ├── layout.tsx               # Shared provider, navigation, and footer
 │   ├── globals.css              # Tailwind theme, fonts, focus styles
-│   ├── icon.svg                 # Original OpenCourt mark
+│   ├── icon.svg                 # Original PickupSports mark
 │   ├── not-found.tsx            # Unknown game / route fallback
 │   ├── games/[id]/page.tsx       # Typed dynamic game route
 │   └── my-games/page.tsx        # Joined games route
@@ -155,4 +153,4 @@ This project was created from scratch specifically for ECE 49595 Exercise 3. All
 - [React: sharing state between components](https://react.dev/learn/sharing-state-between-components)
 - [Tailwind responsive design](https://tailwindcss.com/docs/responsive-design)
 
-Framework code, Lucide icons, and Fontsource fonts retain their upstream licenses. The map, court illustrations, sport symbols, and OpenCourt mark are original SVG code created for this prototype.
+Framework code, Lucide icons, and Fontsource fonts retain their upstream licenses. The map, court illustrations, sport symbols, and PickupSports mark are original SVG code created for this prototype.

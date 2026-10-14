@@ -78,8 +78,41 @@ button:disabled {
   background: #e0e5dc;
   color: #5f6b61;
 }
-.map-pin {
-  filter: drop-shadow(0 3px 5px #253b3220);
+/* Leaflet game markers (see game-map.tsx) */
+.game-pin-wrapper {
+  background: none;
+  border: none;
+  border-radius: 9999px;
+}
+.game-pin {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #ffffff;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: var(--color-forest);
+  filter: drop-shadow(0 3px 5px #253b3240);
+  transition:
+    background-color 150ms,
+    transform 150ms;
+}
+.game-pin:hover {
+  background: var(--color-sage);
+}
+.game-pin.is-selected {
+  background: var(--color-forest);
+  color: #ffffff;
+  transform: scale(1.15);
+}
+.game-pin-icon {
+  width: 22px;
+  height: 22px;
+}
+.leaflet-container {
+  font-family: inherit;
 }
 .game-scroll {
   scrollbar-width: thin;

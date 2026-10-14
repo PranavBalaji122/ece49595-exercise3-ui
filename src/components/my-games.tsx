@@ -4,10 +4,9 @@ import Link from "next/link";
 import { ArrowUpRight, CalendarDays } from "lucide-react";
 import { useGames } from "@/components/game-provider";
 import { GameCard } from "@/components/game-card";
-import { games } from "@/lib/games";
 
 export function MyGames() {
-  const { joinedIds } = useGames();
+  const { games, joinedIds } = useGames();
   const joinedGames = games.filter((game) => joinedIds.includes(game.id));
   return (
     <main id="main-content" className="page-shell min-h-[65vh] pt-10">

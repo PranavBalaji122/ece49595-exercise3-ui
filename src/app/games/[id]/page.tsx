@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { GameDetails } from "@/components/game-details";
-import { games } from "@/lib/games";
+import { findGameRecord, gameRecords } from "@/lib/game-records";
 
 export function generateStaticParams() {
-  return games.map((game) => ({ id: game.id }));
+  return gameRecords.map((record) => ({ id: record.id }));
 }
 
 export async function generateMetadata({
@@ -13,8 +13,8 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
   const { id } = await params;
-  const game = games.find((game) => game.id === id);
-  return { title: game?.title ?? "Game not found" };
+  const record = findGameRecord(id);
+  return { title: record?.title ?? "Game not found" };
 }
 
 export default async function GamePage({
@@ -23,7 +23,7 @@ export default async function GamePage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const game = games.find((game) => game.id === id);
-  if (!game) notFound();
-  return <GameDetails game={game} />;
+  const record = findGameRecord(id);
+  if (!record) notFound();
+  return <GameDetails record={record} />;
 }

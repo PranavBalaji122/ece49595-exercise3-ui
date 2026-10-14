@@ -17,10 +17,18 @@ import { CourtArt } from "@/components/court-art";
 import { SportIcon } from "@/components/sport-icon";
 import { MapPanel } from "@/components/map-panel";
 import { useGames } from "@/components/game-provider";
-import { type Game, sportStyles, formatDate, formatTime } from "@/lib/games";
+import { sportStyles, formatDate, formatTime, toGame } from "@/lib/games";
+import type { GameRecord } from "@/lib/game-records";
 
-export function GameDetails({ game }: { game: Game }) {
-  const { joinedIds, playerCount, toggleJoin } = useGames();
+export function GameDetails({ record }: { record: GameRecord }) {
+  const { joinedIds, playerCount, toggleJoin, origin, locationStatus } =
+    useGames();
+  // Distance depends on where the user is, so it is computed in the browser.
+  const game = toGame(record, origin);
+  let distanceSource = "from Purdue Memorial Union";
+  if (locationStatus === "device") {
+    distanceSource = "from your location";
+  }
   const joined = joinedIds.includes(game.id);
   const count = playerCount(game);
   const spots = game.maxPlayers - count;
@@ -144,10 +152,9 @@ export function GameDetails({ game }: { game: Game }) {
             <p className="mb-4 text-xs leading-6 text-muted">
               {game.address}
               <br />
-              {game.distance.toFixed(1)} miles from the Purdue campus reference
-              point.
+              {game.distance.toFixed(1)} miles {distanceSource}.
             </p>
-            <MapPanel games={[game]} compact />
+            <MapPanel games={[game]} selectedId={game.id} compact />
           </section>
         </div>
         <aside className="lg:sticky lg:top-6" aria-label="Join this game">

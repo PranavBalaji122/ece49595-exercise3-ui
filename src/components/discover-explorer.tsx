@@ -15,10 +15,45 @@ import {
   useGames,
   type Filters,
 } from "@/components/game-provider";
-import { games } from "@/lib/games";
+
+// Scroll the results list (desktop) so a card picked on the map is visible.
+// On mobile the list is not a scroll box, so this does nothing there.
+function scrollCardIntoList(id: string) {
+  const list = document.getElementById("game-list");
+  const card = document.getElementById(`game-card-${id}`);
+  if (!list || !card) return;
+  list.scrollTo({ top: card.offsetTop - 8, behavior: "smooth" });
+}
+
+// Bring the map into view when a card asks for it (mainly for mobile,
+// where the map sits above the list).
+function scrollMapIntoView() {
+  const map = document.getElementById("discover-map");
+  if (!map) return;
+  map.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
 
 export function DiscoverExplorer() {
-  const { filters, setFilters, playerCount } = useGames();
+  const {
+    games,
+    gamesLoaded,
+    filters,
+    setFilters,
+    playerCount,
+    selectedId,
+    setSelectedId,
+  } = useGames();
+
+  function selectFromMap(id: string) {
+    setSelectedId(id);
+    scrollCardIntoList(id);
+  }
+
+  function selectFromCard(id: string) {
+    setSelectedId(id);
+    scrollMapIntoView();
+  }
+
   const visibleGames = games
     .filter(
       (game) =>
@@ -79,8 +114,13 @@ export function DiscoverExplorer() {
         <div className="order-2 lg:order-1 lg:col-span-2">
           <FilterBar />
         </div>
-        <div className="order-1 min-w-0 lg:order-2">
-          <MapPanel games={visibleGames} />
+        <div className="order-1 min-w-0 lg:order-2" id="discover-map">
+          <MapPanel
+            games={visibleGames}
+            selectedId={selectedId}
+            onSelectGame={selectFromMap}
+            onReset={() => setSelectedId(null)}
+          />
         </div>
         <section aria-labelledby="nearby-heading" className="order-3 min-w-0">
           <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
@@ -116,14 +156,21 @@ export function DiscoverExplorer() {
             </label>
           </div>
           <div
-            className="game-scroll space-y-3 lg:max-h-[596px] lg:overflow-y-auto lg:p-1 lg:pr-2"
+            id="game-list"
+            className="game-scroll relative space-y-3 lg:max-h-[596px] lg:overflow-y-auto lg:p-1 lg:pr-2"
             role="region"
             aria-label="Nearby game results"
             tabIndex={0}
           >
-            {visibleGames.length ? (
-              visibleGames.map((game) => <GameCard game={game} key={game.id} />)
-            ) : (
+            {visibleGames.map((game) => (
+              <GameCard
+                game={game}
+                key={game.id}
+                selected={game.id === selectedId}
+                onShowOnMap={selectFromCard}
+              />
+            ))}
+            {gamesLoaded && visibleGames.length === 0 && (
               <div className="flex min-h-[310px] flex-col items-center justify-center rounded-2xl border border-dashed border-line bg-white px-6 text-center">
                 <span className="mb-4 rounded-full bg-sage p-4 text-forest">
                   <Search className="size-6" />
@@ -164,7 +211,7 @@ export function DiscoverExplorer() {
         </div>
         <p className="flex items-center gap-2 text-[11px] text-muted">
           <MapPin className="size-3.5 shrink-0" />
-          Demo games · Sep 22–27, 2026
+          Demo games · Oct 20–25, 2026
         </p>
       </section>
     </main>
